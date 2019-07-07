@@ -75,7 +75,7 @@ public class duvar_hareket : MonoBehaviour
     {
         // if (GameObject.FindGameObjectWithTag("duvar").GetComponent<kare_tiklama>().kare_tiklama_durum == true)
         //  {
-        Debug.Log("tıklandı");
+      
         tiklama_durum = true;
         rasgele_sag_sol = Random.Range(0, 4);//0,1,2,3 sayıları rasgele olarak seçiliyor 
         // }

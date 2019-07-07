@@ -57,6 +57,6 @@ public class duvar_olustur : MonoBehaviour
     public void OyunBitti()
     {
         Time.timeScale = 1;//oyunu aktif eder
-        SceneManager.LoadScene("duvarHareket");
+        SceneManager.LoadScene("oyunBaslangic");
     }
 }
