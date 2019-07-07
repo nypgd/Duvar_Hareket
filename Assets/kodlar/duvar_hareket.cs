@@ -4,27 +4,26 @@ using UnityEngine;
 
 public class duvar_hareket : MonoBehaviour
 {
+
     Rigidbody fizik;
     float hiz = 1000;
     bool tiklama_durum = false;
     int rasgele_sag_sol;
     int x_hiz_sag, x_hiz_sol;
     int y_hiz_ust, y_hiz_alt;
-
-
+    // Start is called before the first frame update
     void Start()
     {
         fizik = GetComponent<Rigidbody>();
-        
     }
 
-
+    // Update is called once per frame
     private void FixedUpdate()
     {
-        
+
         if (tiklama_durum)//duvara tıklanmışsa
         {
-      
+
             if (rasgele_sag_sol == 0)
             {
                 fizik.velocity = new Vector3(20, 0, 0) * Time.deltaTime * hiz;//sağa gidiyor
@@ -38,12 +37,12 @@ public class duvar_hareket : MonoBehaviour
             {
                 fizik.velocity = new Vector3(-20, 0, 0) * Time.deltaTime * hiz;//sola gidiyor
                 x_hiz_sol -= 20;
-                if (x_hiz_sol < -21000)
+                if (x_hiz_sol < -2000)
                 {
                     Destroy(gameObject);
                 }
             }
-            else if(rasgele_sag_sol == 2)
+            else if (rasgele_sag_sol == 2)
             {
                 fizik.velocity = new Vector3(0, 20, 0) * Time.deltaTime * hiz;//üste gidiyor
                 y_hiz_ust += 20;
@@ -70,14 +69,17 @@ public class duvar_hareket : MonoBehaviour
         }
 
     }
-  
+
+
     private void OnMouseDown()
     {
-       // if (GameObject.FindGameObjectWithTag("duvar").GetComponent<kare_tiklama>().kare_tiklama_durum == true)
-      //  {
-            tiklama_durum = true;
-            rasgele_sag_sol = Random.Range(0, 4);//0,1,2,3 sayıları rasgele olarak seçiliyor 
-       // }
-                     
+        // if (GameObject.FindGameObjectWithTag("duvar").GetComponent<kare_tiklama>().kare_tiklama_durum == true)
+        //  {
+        Debug.Log("tıklandı");
+        tiklama_durum = true;
+        rasgele_sag_sol = Random.Range(0, 4);//0,1,2,3 sayıları rasgele olarak seçiliyor 
+        // }
+
     }
+
 }
